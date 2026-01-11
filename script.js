@@ -1,16 +1,16 @@
-// Handle Mobile Menu Toggle
+
 function setupMobileMenu() {
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('navMenu');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    // Toggle menu when hamburger is clicked
+
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
     });
 
-    // Close menu when a nav link is clicked
+
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             hamburger.classList.remove('active');
@@ -18,7 +18,7 @@ function setupMobileMenu() {
         });
     });
 
-    // Close menu when clicking outside
+
     document.addEventListener('click', (e) => {
         const isClickInsideNav = navMenu.contains(e.target) || hamburger.contains(e.target);
         if (!isClickInsideNav && navMenu.classList.contains('active')) {
@@ -28,7 +28,7 @@ function setupMobileMenu() {
     });
 }
 
-// Update active nav link based on scroll position
+
 function updateActiveNavLink() {
     const navLinks = document.querySelectorAll('.nav-link');
 
@@ -54,7 +54,7 @@ function updateActiveNavLink() {
 }
 
 
-// Function to render projects
+
 function renderProjects() {
     const projectsContainer = document.getElementById('projectsContainer');
 
@@ -78,12 +78,12 @@ function renderProjects() {
     });
 }
 
-// Handle Contact Form Submission
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize mobile menu
+
     setupMobileMenu();
 
-    // Setup active nav link highlighting
+
     updateActiveNavLink();
 
     renderProjects();
@@ -94,46 +94,45 @@ document.addEventListener('DOMContentLoaded', function() {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // Get form values
+
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
 
-            // Validate form
+
             if (name.trim() === '' || email.trim() === '' || message.trim() === '') {
                 showAlert('Please fill in all fields', 'danger');
                 return;
             }
 
-            // Validate email
+
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
                 showAlert('Please enter a valid email address', 'danger');
                 return;
             }
 
-            // Here you would normally send the data to a server
-            // For now, we'll just show a success message
+
             showAlert('Message sent successfully! Thank you for reaching out.', 'success');
 
-            // Reset form
+
             contactForm.reset();
 
-            // Log the message (in a real scenario, you'd send this to a backend)
+
             console.log('Contact Form Data:', { name, email, message });
         });
     }
 
-    // Add smooth scrolling for navigation links
+
     setupSmoothScroll();
 
-    // Add active nav link highlighting
+
     updateActiveNavLink();
 });
 
-// Show Alert Messages
+
 function showAlert(message, type) {
-    // Create alert element
+
     const alertDiv = document.createElement('div');
     alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
     alertDiv.setAttribute('role', 'alert');
@@ -142,19 +141,19 @@ function showAlert(message, type) {
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     `;
 
-    // Insert alert at the top of the contact form
+
     const contactSection = document.getElementById('contact');
     if (contactSection) {
         contactSection.insertBefore(alertDiv, contactSection.firstChild);
 
-        // Remove alert after 5 seconds
+
         setTimeout(() => {
             alertDiv.remove();
         }, 5000);
     }
 }
 
-// Smooth Scroll for Navigation Links
+
 function setupSmoothScroll() {
     const navLinks = document.querySelectorAll('a[href^="#"]');
 
@@ -162,7 +161,7 @@ function setupSmoothScroll() {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
 
-            // Don't prevent default for links that don't point to sections
+
             if (href === '#') {
                 e.preventDefault();
                 return;
@@ -173,14 +172,14 @@ function setupSmoothScroll() {
             if (target) {
                 e.preventDefault();
 
-                // Close navbar if open (for mobile)
+
                 const navbarCollapse = document.querySelector('.navbar-collapse');
                 if (navbarCollapse && navbarCollapse.classList.contains('show')) {
                     const navbarToggler = document.querySelector('.navbar-toggler');
                     navbarToggler.click();
                 }
 
-                // Scroll to target
+
                 target.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
@@ -190,7 +189,7 @@ function setupSmoothScroll() {
     });
 }
 
-// Highlight Active Navigation Link
+
 function setupActiveNavLink() {
     const navLinks = document.querySelectorAll('.navbar-nav a[href^="#"]');
 
@@ -216,7 +215,7 @@ function setupActiveNavLink() {
     });
 }
 
-// Add scroll to top button functionality
+
 function createScrollToTopButton() {
     const scrollBtn = document.createElement('button');
     scrollBtn.id = 'scrollToTopBtn';
@@ -245,7 +244,7 @@ function createScrollToTopButton() {
 
     document.body.appendChild(scrollBtn);
 
-    // Show button when scrolled down
+
     window.addEventListener('scroll', () => {
         if (window.scrollY > 300) {
             scrollBtn.style.display = 'flex';
@@ -254,7 +253,7 @@ function createScrollToTopButton() {
         }
     });
 
-    // Scroll to top when clicked
+
     scrollBtn.addEventListener('click', () => {
         window.scrollTo({
             top: 0,
@@ -262,7 +261,7 @@ function createScrollToTopButton() {
         });
     });
 
-    // Hover effect
+
     scrollBtn.addEventListener('mouseover', () => {
         scrollBtn.style.transform = 'translateY(-5px)';
         scrollBtn.style.boxShadow = '0 15px 40px rgba(212, 175, 55, 0.4)';
@@ -278,10 +277,10 @@ function createScrollToTopButton() {
     });
 }
 
-// Initialize scroll to top button when DOM is loaded
+
 document.addEventListener('DOMContentLoaded', createScrollToTopButton);
 
-// Add animation to elements on scroll
+
 function setupScrollAnimation() {
     const observerOptions = {
         threshold: 0.1,
@@ -297,7 +296,7 @@ function setupScrollAnimation() {
         });
     }, observerOptions);
 
-    // Observe skill cards and project cards
+
     const cards = document.querySelectorAll('.skill-card, .project-card');
     cards.forEach(card => {
         card.style.opacity = '0';
@@ -305,9 +304,9 @@ function setupScrollAnimation() {
     });
 }
 
-// Initialize on page load
+
 window.addEventListener('load', setupScrollAnimation);
 
-// Log portfolio initialization
+
 console.log('Portfolio initialized successfully!');
 

@@ -336,7 +336,7 @@ html {
     font-family: 'Arial', sans-serif;
 }
 
-/* Skills Section */
+
 #skills {
     padding-top: 6rem;
     padding-bottom: 6rem;
@@ -408,7 +408,7 @@ html {
 
 }
 
-/* Coming Soon Box */
+
 .coming-soon-box {
     max-width: 720px;
     background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
@@ -450,7 +450,7 @@ html {
     animation: pulseGlow 3.5s ease-in-out infinite;
 }
 
-/* Projects Section */
+
 #projects {
     padding-top: 6rem;
     padding-bottom: 6rem;
@@ -562,7 +562,7 @@ html {
     align-self: flex-start;
 }
 
-/* Contact Section */
+
 #contact {
     padding-top: 6rem;
     padding-bottom: 6rem;
@@ -649,7 +649,7 @@ html {
     box-shadow: 0 15px 40px rgba(255, 255, 255, 0.35);
 }
 
-/* Footer */
+
 footer {
     background-color: var(--navy-dark) !important;
     border-top: 1px solid #333333;
@@ -688,7 +688,7 @@ footer p {
     box-shadow: 0 15px 40px rgba(255, 255, 255, 0.3);
 }
 
-/* Animations */
+
 @keyframes slideInDown {
     from {
         opacity: 0;
